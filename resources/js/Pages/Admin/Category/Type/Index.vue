@@ -48,11 +48,11 @@ function destroy(id) {
 
 <template>
   <LayoutAuthenticated>
-    <Head title="category Types" />
+    <Head title="Tipos" />
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiMenu"
-        title="Category Types"
+        title="Tipos"
         main
       >
         <BaseButton

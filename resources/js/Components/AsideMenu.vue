@@ -9,6 +9,8 @@ import OverlayLayer from '@/Components/OverlayLayer.vue'
 let menu = reactive({})
 menu = computed(() => usePage().props.navigation.menu)
 
+console.log(usePage().props.navigation.menu)
+
 const layoutStore = useLayoutStore()
 </script>
 

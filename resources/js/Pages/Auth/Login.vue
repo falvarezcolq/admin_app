@@ -63,9 +63,9 @@ const submit = () => {
         </NotificationBarInCard>
 
         <FormField
-          label="Email"
+          label="Correo"
           label-for="email"
-          help="Please enter your email"
+          help="Ingrese su correo electrónico"
         >
           <FormControl
             v-model="form.email"
@@ -78,9 +78,9 @@ const submit = () => {
         </FormField>
 
         <FormField
-          label="Password"
+          label="Contraseña"
           label-for="password"
-          help="Please enter your password"
+          help="Porfavor ingrese su contraseña"
         >
           <FormControl
             v-model="form.password"
@@ -95,7 +95,7 @@ const submit = () => {
         <FormCheckRadioGroup
           v-model="form.remember"
           name="remember"
-          :options="{ remember: 'Remember' }"
+          :options="{ remember: 'Recordar Contraseña' }"
         />
 
         <BaseDivider />
@@ -105,23 +105,23 @@ const submit = () => {
             <BaseButton
               type="submit"
               color="info"
-              label="Login"
+              label="Ingresar"
               :class="{ 'opacity-25': form.processing }"
               :disabled="form.processing"
             />
-            <BaseButton
+            <!-- <BaseButton
               v-if="canResetPassword"
               :route-name="route('password.request')"
               color="info"
               outline
               label="Remind"
-            />
+            /> -->
           </BaseButtons>
-          <Link
+          <!-- <Link
             :href="route('register')"
           >
-            Register
-          </Link>
+            Registrar
+          </Link> -->
         </BaseLevel>
       </CardBox>
     </SectionFullScreen>

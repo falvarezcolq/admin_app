@@ -47,7 +47,7 @@ function destroy(id) {
 
 <template>
   <LayoutAuthenticated>
-    <Head title="Users" />
+    <Head title="Usuarios" />
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiAccountKey"
