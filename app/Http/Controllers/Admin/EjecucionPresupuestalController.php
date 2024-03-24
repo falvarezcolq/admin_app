@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\cat_programatica;
+use App\Http\Controllers\Controller;
+
+use App\Models\ejecucion_presupuestal;
 use Illuminate\Http\Request;
 
-class CatProgramaticaController extends Controller
+class EjecucionPresupuestalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +36,7 @@ class CatProgramaticaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cat_programatica $cat_programatica)
+    public function show(ejecucion_presupuestal $ejecucion_presupuestal)
     {
         //
     }
@@ -42,7 +44,7 @@ class CatProgramaticaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cat_programatica $cat_programatica)
+    public function edit(ejecucion_presupuestal $ejecucion_presupuestal)
     {
         //
     }
@@ -50,7 +52,7 @@ class CatProgramaticaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cat_programatica $cat_programatica)
+    public function update(Request $request, ejecucion_presupuestal $ejecucion_presupuestal)
     {
         //
     }
@@ -58,7 +60,7 @@ class CatProgramaticaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cat_programatica $cat_programatica)
+    public function destroy(ejecucion_presupuestal $ejecucion_presupuestal)
     {
         //
     }

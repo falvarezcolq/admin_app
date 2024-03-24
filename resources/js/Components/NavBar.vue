@@ -103,7 +103,7 @@ const logout = () => {
         <div
           class="max-h-screen-menu overflow-y-auto lg:overflow-visible lg:flex lg:items-stretch lg:justify-end lg:ml-auto"
         >
-          <NavBarMenu>
+          <!-- <NavBarMenu>
             <NavBarItemLabel
               :icon="mdiMenu"
               label="Sample menu"
@@ -130,8 +130,8 @@ const logout = () => {
                 />
               </NavBarItem>
             </template>
-          </NavBarMenu>
-          <NavBarMenu>
+          </NavBarMenu> -->
+          <!-- <NavBarMenu>
             <NavBarItemLabel :label="userName">
               <UserAvatarCurrentUser class="w-6 h-6 mr-3 inline-flex" />
             </NavBarItemLabel>
@@ -163,7 +163,7 @@ const logout = () => {
                 />
               </NavBarItem>
             </template>
-          </NavBarMenu>
+          </NavBarMenu> -->
           <NavBarItem
             is-desktop-icon-only
             @click.prevent="toggleLightDark"
@@ -174,7 +174,7 @@ const logout = () => {
               is-desktop-icon-only
             />
           </NavBarItem>
-          <NavBarItem
+          <!-- <NavBarItem
             href="https://github.com/balajidharma/laravel-vue-admin-panel"
             is-desktop-icon-only
           >
@@ -183,7 +183,7 @@ const logout = () => {
               label="GitHub"
               is-desktop-icon-only
             />
-          </NavBarItem>
+          </NavBarItem> -->
           <NavBarItem
             is-desktop-icon-only
             @click="logout"

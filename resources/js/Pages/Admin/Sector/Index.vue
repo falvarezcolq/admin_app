@@ -18,7 +18,7 @@ import Pagination from "@/Components/Admin/Pagination.vue"
 import Sort from "@/Components/Admin/Sort.vue"
 
 const props = defineProps({
-  permissions: {
+  sectores: {
     type: Object,
     default: () => ({}),
   },
@@ -47,14 +47,14 @@ function destroy(id) {
 
 <template>
   <LayoutAuthenticated>
-    <Head title="Permissions" />
+    <Head title="Sectores" />
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiAccountKey"
-        title="Permissions"
+        title="Sectores"
         main
       >
-        <BaseButton
+        <!-- <BaseButton
           v-if="can.delete"
           :route-name="route('admin.permission.create')"
           :icon="mdiPlus"
@@ -62,7 +62,7 @@ function destroy(id) {
           color="info"
           rounded-full
           small
-        />
+        /> -->
       </SectionTitleLineWithButton>
       <NotificationBar
         :key="Date.now()"
@@ -73,7 +73,7 @@ function destroy(id) {
         {{ $page.props.flash.message }}
       </NotificationBar>
       <CardBox class="mb-6" has-table>
-        <form @submit.prevent="form.get(route('admin.permission.index'))">
+        <form @submit.prevent="form.get(route('admin.sector.index'))">
           <div class="py-2 flex">
             <div class="flex pl-4">
               <input
@@ -89,6 +89,7 @@ function destroy(id) {
                   focus:ring-opacity-50
                 "
                 style="color:#000"
+            
                 placeholder="Search"
               />
               <BaseButton
@@ -105,18 +106,21 @@ function destroy(id) {
         <table>
           <thead>
             <tr>
+              <th>ID SECTOR</th>
               <th>
                 <Sort label="Name" attribute="name" />
               </th>
-              <th v-if="can.edit || can.delete">Actions</th>
+              <th>SIGLA</th>
+              <!-- <th v-if="can.edit || can.delete">Actions</th> -->
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for="permission in permissions.data" :key="permission.id">
+            <tr v-for="sector in sectores.data" :key="sector.id">
+              <td>{{sector.id_sector}}</td>
               <td data-label="Name">
                 <Link
-                  :href="route('admin.permission.show', permission.id)"
+                  :href="route('admin.sector.show', sector.id)"
                   class="
                     no-underline
                     hover:underline
@@ -124,35 +128,37 @@ function destroy(id) {
                     dark:text-cyan-400
                   "
                 >
-                  {{ permission.name }}
+                  {{ sector.denominacion }}
                 </Link>
               </td>
+              <td>
+                {{sector.sigla}}
+              </td>
               <td
-                v-if="can.edit || can.delete"
                 class="before:hidden lg:w-1 whitespace-nowrap"
               >
-                <BaseButtons type="justify-start lg:justify-end" no-wrap>
+                <!-- <BaseButtons type="justify-start lg:justify-end" no-wrap>
                   <BaseButton
-                    v-if="can.edit"
+                   
                     :route-name="route('admin.permission.edit', permission.id)"
                     color="info"
                     :icon="mdiSquareEditOutline"
                     small
                   />
                   <BaseButton
-                    v-if="can.delete"
+                  
                     color="danger"
                     :icon="mdiTrashCan"
                     small
                     @click="destroy(permission.id)"
                   />
-                </BaseButtons>
+                </BaseButtons> -->
               </td>
             </tr>
           </tbody>
         </table>
         <div class="py-4">
-          <Pagination :data="permissions" />
+          <Pagination :data="sectores" />
         </div>
       </CardBox>
     </SectionMain>

@@ -18,7 +18,7 @@ import Pagination from "@/Components/Admin/Pagination.vue"
 import Sort from "@/Components/Admin/Sort.vue"
 
 const props = defineProps({
-  permissions: {
+  institucions: {
     type: Object,
     default: () => ({}),
   },
@@ -47,14 +47,14 @@ function destroy(id) {
 
 <template>
   <LayoutAuthenticated>
-    <Head title="Permissions" />
+    <Head title="Municipios" />
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiAccountKey"
-        title="Permissions"
+        title="Municipios"
         main
       >
-        <BaseButton
+        <!-- <BaseButton
           v-if="can.delete"
           :route-name="route('admin.permission.create')"
           :icon="mdiPlus"
@@ -62,7 +62,7 @@ function destroy(id) {
           color="info"
           rounded-full
           small
-        />
+        /> -->
       </SectionTitleLineWithButton>
       <NotificationBar
         :key="Date.now()"
@@ -73,7 +73,7 @@ function destroy(id) {
         {{ $page.props.flash.message }}
       </NotificationBar>
       <CardBox class="mb-6" has-table>
-        <form @submit.prevent="form.get(route('admin.permission.index'))">
+        <form @submit.prevent="form.get(route('admin.institucion.index'))">
           <div class="py-2 flex">
             <div class="flex pl-4">
               <input
@@ -106,17 +106,32 @@ function destroy(id) {
           <thead>
             <tr>
               <th>
-                <Sort label="Name" attribute="name" />
+                <!-- <Sort label="Name" attribute="name" /> -->
+                ID MUNICIPIO
               </th>
-              <th v-if="can.edit || can.delete">Actions</th>
+              <th>
+                DENOMINACION
+              </th>
+              <th>
+                CLASIFICADOR
+              </th>
+              <th>
+                SIGLA
+              </th>
+              <th>
+                Departamento
+              </th>
+              <!-- <th v-if="can.edit || can.delete">Actions</th> -->
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for="permission in permissions.data" :key="permission.id">
+            <tr v-for="institucion in institucions.data" :key="institucion.id">
+              <td>
+                {{ institucion.id_institucion }}</td>
               <td data-label="Name">
                 <Link
-                  :href="route('admin.permission.show', permission.id)"
+                  :href="route('admin.institucion.show', institucion.id)"
                   class="
                     no-underline
                     hover:underline
@@ -124,35 +139,40 @@ function destroy(id) {
                     dark:text-cyan-400
                   "
                 >
-                  {{ permission.name }}
+                  {{ institucion.denominacion }}
                 </Link>
               </td>
+              <td>
+                {{ institucion.clasificador }}</td>
+                <td>
+                {{ institucion.sigla }}</td>
+                <td>
+                {{ institucion.departamento }}</td>
               <td
-                v-if="can.edit || can.delete"
                 class="before:hidden lg:w-1 whitespace-nowrap"
               >
-                <BaseButtons type="justify-start lg:justify-end" no-wrap>
+                <!-- <BaseButtons type="justify-start lg:justify-end" no-wrap>
                   <BaseButton
-                    v-if="can.edit"
+                   
                     :route-name="route('admin.permission.edit', permission.id)"
                     color="info"
                     :icon="mdiSquareEditOutline"
                     small
                   />
                   <BaseButton
-                    v-if="can.delete"
+                  
                     color="danger"
                     :icon="mdiTrashCan"
                     small
                     @click="destroy(permission.id)"
                   />
-                </BaseButtons>
+                </BaseButtons> -->
               </td>
             </tr>
           </tbody>
         </table>
         <div class="py-4">
-          <Pagination :data="permissions" />
+          <Pagination :data="institucions" />
         </div>
       </CardBox>
     </SectionMain>

@@ -89,6 +89,7 @@ function destroy(id) {
                   focus:ring-indigo-200
                   focus:ring-opacity-50
                 "
+               style="color:#000"
                 placeholder="Search"
               />
               <BaseButton

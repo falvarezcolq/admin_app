@@ -14,6 +14,12 @@ Route::group([
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
+    Route::resource('institucion', 'InstitucionController');
+    Route::resource('sector', 'SectorController');
+    Route::resource('subsector1', 'Subsector1Controller');
+    Route::resource('subsector2', 'Subsector2Controller');
+    Route::resource('catprogramatica', 'CatProgramaticaController');
+ 
     Route::resource('menu', 'MenuController')->except([
         'show',
     ]);
