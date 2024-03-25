@@ -19,6 +19,7 @@ Route::group([
     Route::resource('subsector1', 'Subsector1Controller');
     Route::resource('subsector2', 'Subsector2Controller');
     Route::resource('catprogramatica', 'CatProgramaticaController');
+    Route::resource('ejepresupuestal', 'EjecucionPresupuestalController');
  
     Route::resource('menu', 'MenuController')->except([
         'show',
