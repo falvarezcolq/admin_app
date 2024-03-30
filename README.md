@@ -38,8 +38,17 @@
 - `composer create-project balajidharma/laravel-vue-admin-panel admin-app`
 - `cd admin-app`
 - Create a new MYSQL database and update database details in `.env` file
+
+- `composer install`
+- `php artisan key:generate`
 - `php artisan vendor:publish --tag=admin-core`
 - `php artisan migrate --seed --seeder=AdminCoreSeeder`
+- `php artisan db:seed --class=CatProgramatica`
+- `php artisan db:seed --class=InstitucionSeeder`
+- `php artisan db:seed --class=SectorSeeder`
+- `php artisan db:seed --class=SubSector1Seeder`
+- `php artisan db:seed --class=SubSector2Seeder`
+
 - `npm install`
 - `npm run dev`
 - `php artisan serve`

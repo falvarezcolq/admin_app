@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\ejecucion_presupuestal;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class EjecucionPresupuestalController extends Controller
 {
@@ -15,6 +16,32 @@ class EjecucionPresupuestalController extends Controller
     public function index()
     {
         //
+        $ejecucionpresupuestals = (new ejecucion_presupuestal)->newQuery();
+        if(request()->has('search')){
+            $ejecucionpresupuestals->where('denominacion', 'like', '%'.request()->input('search').'%');
+        }
+
+        if (request()->query('sort')) {
+            $attribute = request()->query('sort');
+            $sort_order = 'ASC';
+            if (strncmp($attribute, '-', 1) === 0) {
+                $sort_order = 'DESC';
+                $attribute = substr($attribute, 1);
+            }
+            $ejecucionpresupuestals->orderBy($attribute, $sort_order);
+        } else {
+            $ejecucionpresupuestals->latest();
+        }
+        
+        $ejecucionpresupuestals = $ejecucionpresupuestals->paginate(config('admin.paginate.per_page'))
+                                ->onEachSide(config('admin.paginate.each_side'))
+                                ->appends(request()->query());
+
+        return Inertia::render('Admin/EjecucionPresupuestal/Index', [
+            'ejecucionpresupuestals' => $ejecucionpresupuestals,
+            'filters' => request()->all('search'),
+        ]);
+
     }
 
     /**
